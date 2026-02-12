@@ -1,0 +1,10 @@
+@supports (pointer-events: none){
+	.snowFlake{
+		background: rgba(255, 255, 255, 0.8);
+		display: inline-block;
+		border-radius: 50%;
+		left: 0;
+		position: absolute;
+		top: 0;
+	}
+}

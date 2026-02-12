@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<title>Snow.js demo - &lt;toby&gt;</title>
+<meta content="initial-scale=1,width=device-width" name="viewport" />
+<link rel="stylesheet" href="./_/snow.css" />
+<style>
+html{ background: black; color: white; }
+body{ margin: 1em auto; width: min-content; }
+blockquote{ margin-inline: 0; white-space: pre; }
+</style>
+<script type="module">
+var parm
+if(window.URLSearchParams && (parm = new URLSearchParams(location.search)) && parm.has('type')){
+	var type = parm.get('type');
+	switch(type){
+		case 'canvas':
+			type = 'CanvasSnowView';
+		break;
+		case 'html':
+		case 'html-pos':
+			type = 'HtmlPosSnowView';
+		break;
+		case 'html-transform':
+			type = 'HtmlTransformSnowView';
+		break;
+		case 'svg':
+			type = 'SvgSnowView';
+		break;
+	}
+	var css;
+	if(type === 'SvgSnowView'){
+		css = 'svg.css';
+	}else if(type === 'HtmlPosSnowView' || type === 'HtmlTransformSnowView'){
+		css = 'html.css';
+	}
+	if(css){
+		var link = document.createElement('link');
+		link.href = './_/' + css;
+		link.rel = 'stylesheet';
+		(document.head || document.body).appendChild(link);
+	}
+	import('./_/' + type + '.js').then((mod)=> {
+		new mod.default();
+	});
+}else{
+	import('./_/snow.js');
+}
+</script>
+<h1>Snow.js demo</h1>
+<blockquote>Cauld blaws the wind frae east to west,
+The drift is driving sairly;
+Sae loud and shrill’s I hear the blast,
+I’m sure it’s winter fairly.
+
+Up in the morning’s no for me,
+Up in the morning early;
+When a’ the hills are cover’d wi’ snaw,
+I’m sure its winter fairly.
+
+The birds sit chittering in the thorn,
+A’ day they fare but sparely;
+And lang’s the night frae e’en to morn,
+I’m sure it’s winter fairly.
+
+Up in the morning’s no for me,
+Up in the morning early;
+When a’ the hills are cover’d wi’ snaw,
+I’m sure its winter fairly.</blockquote>
+<div>- <a href="https://www.scottishpoetrylibrary.org.uk/poem/morning-early/">Robert Burns, <cite>Up in the Morning Early</cite></a></div>
+<hr />
+<blockquote>The wintry west extends his blast,
+And hail and rain does blaw;
+Or the stormy north sends driving forth
+The blinding sleet and snaw:
+While, tumbling brown, the burn comes down,
+And roars frae bank to brae;
+And bird and beast in covert rest,
+And pass the heartless day.
+
+The sweeping blast, the sky o'ercast,
+The joyless winter day
+Let others fear, to me more dear
+Than all the pride of May:
+The tempest's howl, it soothes my soul,
+My griefs it seems to join;
+The leafless trees my fancy please,
+Their fate resembles mine!
+
+Thou Pow'r Supreme, whose mighty scheme
+These woes of mine fulfil,
+Here firm I rest; they must be best,
+Because they are Thy will!
+Then all I want - O do Thou grant
+This one request of mine! -
+Since to enjoy Thou dost deny,
+Assist me to resign.</blockquote>
+<div>- <a href="https://www.poetryfoundation.org/poems/53211/winter-a-dirge">Robert Burns, <cite>Winter: A Dirge</cite></a></div>
+
+<p><a href="https://github.com/tobymackenzie/snow.js">See the code for this project</a>.</p>
+<p>A <a href="https://macn.me">&lt;toby/&gt;</a> project</p>
+
