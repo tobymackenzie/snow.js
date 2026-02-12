@@ -3,6 +3,8 @@ Snow.js
 
 Falling snow for a website.  Gently wafting appearance similar to a pleasant snow observed by the author.  Should run in browsers that support HTML [`<canvas>`](https://caniuse.com/?search=canvas), CSS [`pointer-events`](https://caniuse.com/?search=pointer-events) and JS [`requestAnimationFrame`](https://caniuse.com/?search=requestAnimationFrame), though not tested thoroughly.  Uses a bit of processor continuously but to me it is worth it to help enjoy winter.
 
+[See the demo](https://tobymackenzie.github.io/snow.js/).
+
 To use, load `snow.js` and `snow.css` in your HTML, like:
 
 ``` html
